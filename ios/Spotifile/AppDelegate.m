@@ -38,6 +38,8 @@
 #import <UserNotifications/UserNotifications.h>
 
 #import <UserNotifications/UserNotifications.h>
+
+#import <RNCPushNotificationIOS/RCTConvert+Notification.h>
 #import <RNCPushNotificationIOS.h>
 @implementation AppDelegate
 
@@ -139,6 +141,7 @@
 }
  
 
+
 // Required for localNotification event
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center
 didReceiveNotificationResponse:(UNNotificationResponse *)response
@@ -146,6 +149,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 {
   [RNCPushNotificationIOS didReceiveNotificationResponse:response];
 }
+
 // Required for the notification event. You must call the completion handler after handling the remote notification.
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
